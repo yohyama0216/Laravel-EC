@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Product;
 
 class ProductController extends Controller
 {
@@ -14,8 +15,10 @@ class ProductController extends Controller
      */
     public function index()
     {
-        echo __CLASS__;
+        $products = Product::all();
+        return view('products.index', ['products' => $products]);
     }
+    
 
     /**
      * Show the form for creating a new resource.
