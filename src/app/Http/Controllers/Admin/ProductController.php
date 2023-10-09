@@ -14,7 +14,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        // ProductController.php
+        echo __CLASS__;
     }
 
     /**

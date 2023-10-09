@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ProductController;
-use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\ProductCategoryController;
 use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\ReviewController;
@@ -26,7 +26,7 @@ Route::prefix('admin')->group(function () {
         Route::resource('/products', ProductController::class);
 
         // カテゴリ関連
-        Route::resource('/categories', CategoryController::class);
+        Route::resource('/product-categories', ProductCategoryController::class);
 
         // 注文関連
         Route::resource('/orders', OrderController::class);
