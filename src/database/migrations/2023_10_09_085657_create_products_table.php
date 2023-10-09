@@ -14,7 +14,7 @@ class CreateProductsTable extends Migration
             $table->string('name'); // 商品名
             $table->text('description')->nullable(); // 商品の説明 (任意)
             $table->decimal('price', 8, 2); // 価格
-            $table->integer('stock'); // 在庫数
+            $table->integer('stock')->default(0);; // 在庫数
             $table->timestamps(); // created_at, updated_at
 
             // 外部キー制約
