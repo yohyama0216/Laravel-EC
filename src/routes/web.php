@@ -23,7 +23,7 @@ Route::prefix('admin')->group(function () {
         Route::get('/', [DashboardController::class, 'index'])->name('admin.dashboard');
 
         // 商品関連
-        Route::resource('/products', ProductController::class);
+        Route::resource('/products', ProductController::class, ['as' => 'admin']);
 
         // カテゴリ関連
         Route::resource('/product-categories', ProductCategoryController::class);
