@@ -12,6 +12,9 @@
     </form>
 </div>
 
+@if($products->isEmpty())
+    <p>商品がありません。</p>
+@else
 <table class="table">
     <thead>
         <tr>
@@ -40,5 +43,5 @@
 
 <!-- ページネーション -->
 {{ $products->links('vendor.pagination.bootstrap-4') }}
-
+@endif
 @endsection
