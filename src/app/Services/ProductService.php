@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Models\Product;
+use App\Services\Conditions\SearchCondition;
 
 class ProductService
 {
@@ -11,5 +12,18 @@ class ProductService
         return Product::paginate($paginate);
     }
 
-    // その他、商品関連のロジックをここに追加
+    public function searchProducts(SearchCondition $condition)
+    {
+        $query = Product::query();
+
+        if ($condition->searchName) {
+            $query->where('name', 'LIKE', '%' . $condition->searchName . '%');
+        }
+
+        if ($condition->searchPrice) {
+            $query->where('price', '=', $condition->searchPrice);
+        }
+
+        return $query->paginate();
+    }
 }

@@ -20,12 +20,17 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        $products = $this->productService->getAllProducts();
 
-        return view('admin/products.index', ['products' => $products]);
+    public function index(Request $request)
+    {
+        $searchName = $request->input('searchName');
+        $searchPrice = $request->input('searchPrice');
+    
+        $products = $this->productService->searchProducts($searchName, $searchPrice);
+    
+        return view('admin.products.index', compact('products'));
     }
+
     
     /**
      * Show the form for creating a new resource.

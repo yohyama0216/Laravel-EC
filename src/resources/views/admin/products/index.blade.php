@@ -7,9 +7,10 @@
     
     <!-- 検索フォーム -->
     <form class="d-flex" method="GET" action="{{ route('admin.products.index') }}">
-        <input class="form-control me-2" type="search" placeholder="商品名で検索" name="search" value="{{ request('search') }}">
-        <button class="btn btn-outline-primary" type="submit">検索</button>
-    </form>
+    <input class="form-control me-2" type="search" placeholder="商品名で検索" name="searchName" value="{{ request('searchName') }}">
+    <input class="form-control me-2" type="number" placeholder="価格で検索" name="searchPrice" value="{{ request('searchPrice') }}">
+    <button class="btn btn-outline-primary" type="submit">検索</button>
+</form>
 </div>
 
 @if($products->isEmpty())
@@ -44,4 +45,5 @@
 <!-- ページネーション -->
 {{ $products->links('vendor.pagination.bootstrap-4') }}
 @endif
+
 @endsection
