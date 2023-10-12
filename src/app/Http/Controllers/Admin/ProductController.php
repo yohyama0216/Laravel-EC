@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Services\ProductService;
+use App\Services\Conditions\SearchCondition;
 
 class ProductController extends Controller
 {
@@ -23,12 +24,10 @@ class ProductController extends Controller
 
     public function index(Request $request)
     {
-        $searchName = $request->input('searchName');
-        $searchPrice = $request->input('searchPrice');
-    
-        $products = $this->productService->searchProducts($searchName, $searchPrice);
-    
-        return view('admin.products.index', compact('products'));
+         $condition = SearchCondition::fromRequest($request);
+         $products = $this->productService->searchProducts($condition);
+ 
+         return view('admin.products.index', compact('products'));
     }
 
     

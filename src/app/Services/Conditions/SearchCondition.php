@@ -2,7 +2,7 @@
 
 namespace App\Services\Conditions;
 
-use Illuminate\Support\Facades\Request;
+use Illuminate\Http\Request;
 
 class SearchCondition
 {
