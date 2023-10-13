@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ProductCategoryController;
 use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\CustomerController;
 use App\Http\Controllers\Admin\ReviewController;
 use App\Http\Controllers\Admin\SaleController;
 use App\Http\Controllers\Admin\SettingController;
@@ -33,6 +34,9 @@ Route::prefix('admin')->group(function () {
 
         // ユーザー・顧客関連
         Route::resource('/users', UserController::class);
+
+        // ユーザー・顧客関連
+        Route::resource('/customers', CustomerController::class, ['as' => 'admin']);
 
         // レビュー・フィードバック関連
         Route::resource('/reviews', ReviewController::class);
