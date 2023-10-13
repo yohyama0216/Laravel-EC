@@ -2,7 +2,7 @@
 
 namespace App\Services;
 
-class DiscountCalculator
+class DiscountService
 {
     private $amount;
     private $discountType;
@@ -12,7 +12,7 @@ class DiscountCalculator
     const PERCENTAGE = 'percentage';
 
     /**
-     * DiscountCalculator constructor.
+     * DiscountService constructor.
      * @param float $amount - 購入金額
      * @param string $discountType - 割引タイプ（flat or percentage）
      * @param float $discountValue - 割引金額 or 割引率
